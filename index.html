@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D-Elephant Music Streaming Platform</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>D-Elephant Music Streaming</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .album { margin: 20px; display: inline-block; }
+        img { width: 150px; height: 150px; }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to D-Elephant Music</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Your Favorite Music</h2>
-            <p>Discover and listen to your favorite music streamed directly to you!</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 D-Elephant Music</p>
-    </footer>
+    <h1>Welcome to D-Elephant Music Streaming Platform</h1>
+    <div id="music-container"></div>
+    <script>
+        const musicContainer = document.getElementById('music-container');
+        const songs = [
+            'song1.mp3',
+            'song2.mp3',
+            'song3.mp3'
+        ];
+        const covers = [
+            'cover1.jpg',
+            'cover2.jpg',
+            'cover3.jpg'
+        ];
+
+        songs.forEach((song, index) => {
+            const albumDiv = document.createElement('div');
+            albumDiv.className = 'album';
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.src = `songs/${song}`;
+            const cover = document.createElement('img');
+            cover.src = `covers/${covers[index]}`;
+            albumDiv.appendChild(audio);
+            albumDiv.appendChild(cover);
+            musicContainer.appendChild(albumDiv);
+        });
+    </script>
 </body>
 </html>
